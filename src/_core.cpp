@@ -6,6 +6,18 @@
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(_core, m) {
-  /// ... Fill me in!
+PYBIND11_MODULE(_core, m)
+{
+  py::class_<IntegratorBase, std::shared_ptr<IntegratorBase>>(m, "IntegratorBase")
+      .def("f", &IntegratorBase::f)
+      .def("compute_step", &IntegratorBase::compute_step)
+      .def("integrate", &IntegratorBase::integrate);
+
+  py::class_<EulerIntegrator, IntegratorBase, std::shared_ptr<EulerIntegrator>>(m, "EulerIntegrator")
+      .def(py::init<>())
+      .def("compute_step", &EulerIntegrator::compute_step);
+
+  py::class_<HarmonicOscillator, EulerIntegrator, std::shared_ptr<HarmonicOscillator>>(m, "HarmonicOscillator")
+      .def(py::init<>())
+      .def("f", &HarmonicOscillator::f);
 }
