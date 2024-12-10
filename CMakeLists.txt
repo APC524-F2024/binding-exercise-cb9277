@@ -13,9 +13,6 @@ FetchContent_MakeAvailable(eigen)
 
 if(DEFINED SKBUILD)
   find_package(Python COMPONENTS Interpreter Development)
-  find_package(NumPy REQUIRED)
-  find_package(PythonExtensions REQUIRED)
-  find_package(F2PY REQUIRED)
   find_package(pybind11 CONFIG REQUIRED)
   pybind11_add_module(_core CMAKE_BINARY_DIR/src/_core.cpp)
   set_target_properties(
