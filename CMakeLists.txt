@@ -13,7 +13,6 @@ FetchContent_MakeAvailable(eigen)
 
 if(DEFINED SKBUILD)
   find_package(Python COMPONENTS Interpreter Development)
-  find_program(CYTHON_EXECUTABLE NAMES cython REQUIRED)
   find_package(NumPy REQUIRED)
   find_package(PythonExtensions REQUIRED)
   find_package(F2PY REQUIRED)
