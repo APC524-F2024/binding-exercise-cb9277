@@ -7,7 +7,7 @@
 namespace py = pybind11;
 
 PYBIND11_MODULE(_core, m) {
-  py::class_<HarmonicOscillator, EulerIntegrator,
+  py::class_<HarmonicOscillator,
              std::shared_ptr<HarmonicOscillator>>(m, "HarmonicOscillator")
       .def(py::init<>())
       .def("compute_step", &HarmonicOscillator::compute_step)
