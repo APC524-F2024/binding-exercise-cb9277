@@ -21,5 +21,6 @@ PYBIND11_MODULE(_core, m) {
   py::class_<HarmonicOscillator, EulerIntegrator,
              std::shared_ptr<HarmonicOscillator>>(m, "HarmonicOscillator")
       .def(py::init<>())
-      .def("f", &HarmonicOscillator::f);
+      .def("compute_step", &HarmonicOscillator::compute_step)
+      .def("integrate", &HarmonicOscillator::integrate);
 }
