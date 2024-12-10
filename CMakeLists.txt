@@ -18,7 +18,7 @@ if(DEFINED SKBUILD)
   find_package(PythonExtensions REQUIRED)
   find_package(F2PY REQUIRED)
   find_package(pybind11 CONFIG REQUIRED)
-  pybind11_add_module(_core src/_core.cpp)
+  pybind11_add_module(_core {CMAKE_BINARY_DIR}/src/_core.cpp)
   set_target_properties(_core PROPERTIES
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/src/binding_exercise"
 )
